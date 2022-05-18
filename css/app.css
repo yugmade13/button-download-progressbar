@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 175px;
+    background-color: #fff;
+    box-shadow: rgba(148, 148, 148, 0.15) 0px 2px 8px 0px;
+    border-radius: 5px;
+}
+
+.btn {
+    position: absolute;
+    width: 135px;
+    height: 35px;
+    color: rgb(255, 255, 255);
+    background-color: #3b82f6;
+    border: none;
+    font-size: 1rem;
+    border-radius: 22px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 2.55);
+    overflow: hidden;
+}
+
+.btn:active {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    width: 135px;
+    height: 35px;
+    top: 0;
+    left: -100%;
+    background: #3b82f6;
+    border-radius: 22px;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 2.55);
+}
+
+.active, .active::before {
+    width: 175px;
+    height: 10px;
+}
+
+.active {
+  background-color: #d4d4d4;
+}
+
+.active::before {
+    animation: layer 5s ease-in-out forwards;
+}
+
+@keyframes layer {
+    100% {
+        left: 0%;
+    }
+}
+
+.btn .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+    transition-delay: .2s;
+}
+
+.btn.active .content {
+    transform: translateY(15px);
+}
+
+.btn i {
+    font-size: 1.3rem;
+    margin-right: 2px;
+}
+
+.btn .btn-text {
+    margin-left: 2px;
+}
